@@ -1,0 +1,240 @@
+/* USE Use rem for spacing, font sizes, and layout dimensions. 
+Use em for component-specific scaling, like buttons inside a container. 
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #fafafa;
+  --yellow: #e0bb20;
+  --red: #841818;
+  --black: #000000;
+  --light-blue: #ecf0f1;
+}
+/* BODY */
+body {
+  margin: 0;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 142px;
+  font-family: "Poppins", sans-serif;
+}
+
+.container-showcase {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* HEADER */
+header {
+  background-color: var(--black);
+  color: white;
+  align-items: center;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CCS {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  color: var(--black);
+}
+
+nav ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  color: var(--black);
+  background-color: var(--white);
+  transform: scale(1.5);
+}
+
+nav ul li a.active {
+  background-color: var(--secondary-color);
+}
+
+.container a.active{
+  color: var(--black);
+  background-color: var(--white);
+  padding: 0.5rem 1rem;
+}
+
+/* SECTION */
+.first {
+  background: var(--yellow);
+  color: var(--white);
+  padding-top: 90px;
+  padding-bottom: 84px;
+  text-align: center;
+}
+
+.first h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 60px;
+  font-weight: normal;
+  color: var(--black);
+}
+
+.first p {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  color: var(--black);
+}
+
+.first_btn {
+  display: inline-block;
+  padding: 10px 40px;
+  background-color: var(--red);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 24px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 24px;
+}
+
+.first_btn:hover {
+  background-color: #a31f1f;
+  transform: scale(1.05);
+}
+
+/* FEATURES SECTION */
+.features {
+  background-color: var(--white);
+  padding-top: 60px;
+  padding-bottom: 0px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 0px;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.features h2 {
+  color: #000;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 35px;
+}
+
+/* Align feature items horizontally */
+/* .features .feature-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px;
+} */
+
+/* Card styling */
+.features .card {
+  border-left: 4px solid #8d2420;
+  padding-left: 16px;
+  text-align: left;
+  /* max-width: 45%; */
+}
+
+.features .card-right {
+  border-right: 4px solid #8d2420;
+  padding-right: 16px;
+  text-align: right;
+  /* max-width: 45%; */
+}
+
+.features .card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.features .card-right h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.features .card p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.features .card-right p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* .feature-image {
+  margin-top: -170px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+} */
+
+
+/* .container-feature-1 {
+  max-width: 1440px;
+  margin: 142px;
+  padding: 0 20px;
+  font-family: "Poppins", sans-serif;
+} */
+
+/* VISION */
+.vission{
+    background-color: var(--light-blue);
+}
+
+.vission h2 {
+  text-align: center;
+  font-size: 40px;
+  padding-top: 42px;
+  padding-bottom: 18px;
+}
+
+.vission p {
+  text-align: center;
+  font-size: 20px;
+  max-width: 1298px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+/* FOOTER */
+
+footer {
+  background-color: var(--black);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
