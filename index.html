@@ -10,7 +10,6 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-
     <title>CCS Project Hub</title>
   </head>
   <body>
@@ -22,15 +21,17 @@
         </div>
         <nav>
           <ul>
-            <li><a href="index.html"class="active">Home</a></li>
-            <li><a href="idea.html" >Idea</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="idea.html">Idea</a></li>
             <li><a href="team.html">Team</a></li>
           </ul>
         </nav>
       </div>
     </header>
-    <!-- Section -->
+
+    <!-- Main Content -->
     <main>
+      <!-- Hero Section -->
       <section class="first">
         <div class="container-showcase">
           <h1>Showcase Your Code. Inspire Your Peers.</h1>
@@ -44,16 +45,62 @@
       </section>
 
       <!-- Features Section -->
+      <!-- Features Section with 3 sets of cards -->
       <section class="features">
         <div class="container">
           <h2>What Makes ProjectHub Different?</h2>
 
-          <div class="feature-grid">
+          <div class="role-buttons">
+            <button id="studentBtn">For Students</button>
+            <button id="teacherBtn">For Teachers</button>
+          </div>
+
+          <!-- DEFAULT Features (shown initially) -->
+          <div class="feature-grid" id="defaultFeatures">
+            <div class="card">
+              <h3>Centralized Platform</h3>
+              <p>
+                All your programming projects in one place,<br />
+                organized by subject and easy to access<br />
+                anytime, anywhere.
+              </p>
+            </div>
+
+            <div class="card-right">
+              <h3>Collaborative Learning</h3>
+              <p>
+                Learn from peers' approaches and share<br />
+                your own solutions to create a vibrant<br />
+                learning community.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Portfolio Building</h3>
+              <p>
+                Automatically build a professional portfolio<br />
+                showcasing your best work for future<br />
+                opportunities.
+              </p>
+            </div>
+
+            <div class="card-right">
+              <h3>Real-time Feedback</h3>
+              <p>
+                Get instant feedback from instructors and<br />
+                peers to improve your code quality and<br />
+                problem-solving skills.
+              </p>
+            </div>
+          </div>
+
+          <!-- STUDENT Features -->
+          <div class="feature-grid hidden" id="studentFeatures">
             <div class="card">
               <h3>Organized Submissions</h3>
               <p>
-                Submit your programming outputs organized by <br />
-                subject and lab activity in one centralized <br />
+                Submit your programming outputs organized by<br />
+                subject and lab activity in one centralized<br />
                 platform.
               </p>
             </div>
@@ -61,66 +108,102 @@
             <div class="card-right">
               <h3>Peer Learning</h3>
               <p>
-                Browse and learn from your classmates' <br />
-                projects to gain inspiration and improve your <br />
+                Browse and learn from your classmates'<br />
+                projects to gain inspiration and improve your<br />
                 coding skills.
               </p>
             </div>
 
             <div class="card">
-              <h3>Public Showcase</h3>
+              <h3>Project Reminders</h3>
               <p>
-                Display your best work publicly and build a <br />
-                digital portfolio that highlights your skills and <br />
-                creativity.
+                Get notified about upcoming deadlines <br />and submissions to
+                stay organized and on <br />
+                time.
               </p>
             </div>
 
             <div class="card-right">
+              <h3>Code Snippets Library</h3>
+              <p>Save and reuse your best code solutions</p>
+            </div>
+          </div>
+
+          <!-- TEACHER Features -->
+          <div class="feature-grid hidden" id="teacherFeatures">
+            <div class="card">
               <h3>Easy Evaluation</h3>
               <p>
-                Instructors can view, grade, and provide feedback <br />
-                on student submissions efficiently <br />
-                in one place.
+                View, grade, and provide feedback on student<br />
+                submissions efficiently in one centralized<br />
+                platform.
               </p>
+            </div>
+
+            <div class="card-right">
+              <h3>Announcement Board</h3>
+              <p>
+                Share important announcements and reminders <br> with the entire
+                class in one place
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Plagiarism Detection</h3>
+              <p>
+                Compare submissions to identify similar code<br />
+                patterns and ensure academic integrity across<br />
+                projects.
+              </p>
+            </div>
+
+            <div class="card-right">
+              <h3>Quick Grading</h3>
+              <p>Grade student outputs directly from the platform.</p>
             </div>
           </div>
         </div>
 
         <div class="feature-image">
-          <img src="assets/svg/ccs!.svg" alt="Feature Image" />
+          <img
+            src="assets/svg/ccs!.svg"
+            alt="CCS Project Hub Feature Illustration"
+          />
         </div>
       </section>
 
+      <!-- Vision Section -->
       <section class="vission">
         <div class="container">
           <h2>Our Vision</h2>
           <p>
             CCS ProjectHub aims to transform how programming students share and
             learn from each other's work. Unlike traditional learning management
-            systems that focus solely on submissions and grades,CCS ProjectHub
-            aims to transform how programming students share and learn from each
-            other's work. Unlike traditional learning management systems that
-            focus solely on submissions and grades, ProjectHub creates a
-            collaborative environment where creativity is celebrated and
-            innovation is encouraged.ProjectHub creates a collaborative
-            environment where creativity is celebrated and innovation is
-            encouraged.
+            systems that focus solely on submissions and grades, ProjectHub
+            creates a collaborative environment where creativity is celebrated
+            and innovation is encouraged.
           </p>
           <p>
             We believe that seeing how others solve problems and structure their
-            code is one of the most powerful ways to learn programming. ProjectHub
-            makes this possible by turning every submission into a learning
-            opportunity for the entire CCS community.
+            code is one of the most powerful ways to learn programming.
+            ProjectHub makes this possible by turning every submission into a
+            learning opportunity for the entire CCS community.
           </p>
         </div>
       </section>
     </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>
+          © 2025 CCS ProjectHub. A project for Lab Activity 3 - Web Development
+        </p>
+        <p>Mindanao State University - Iligan Institute of Technology</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
   </body>
-  <footer>
-    <div class="container">
-      <p>© 2025 CCS ProjectHub. A project for Lab Activity 2 - Web Development </p>
-      <p>Mindanao State University - Iligan Institute of Technology</p>
-    </div>
-  </footer>
 </html>
