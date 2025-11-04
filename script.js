@@ -228,4 +228,102 @@ document.addEventListener('DOMContentLoaded', function() {
   document.head.appendChild(style);
 
   console.log("✅ CCS ProjectHub - All interactive features loaded successfully!");
+
+// ===========================================
+// AUTOMATIC CAROUSEL SLIDER
+// ===========================================
+const slider = document.querySelector('.carousel-ex .slider');
+const images = document.querySelectorAll('.carousel-ex .slider img');
+
+if (slider && images.length > 0) {
+  console.log("Carousel found, initializing auto-slide...");
+  
+  let currentIndex = 0;
+  const totalImages = images.length;
+  const autoSlideInterval = 4000; // 4 seconds between slides
+  let autoSlide = null;
+  let isUserInteracting = false;
+  let interactionTimeout = null;
+  
+  function goToSlide(index) {
+    images[index].scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'start'
+    });
+  }
+  
+  function nextSlide() {
+    if (!isUserInteracting) {
+      currentIndex = (currentIndex + 1) % totalImages;
+      goToSlide(currentIndex);
+    }
+  }
+  
+  function startAutoSlide() {
+    if (autoSlide) clearInterval(autoSlide);
+    autoSlide = setInterval(nextSlide, autoSlideInterval);
+    console.log("Auto-slide started");
+  }
+  
+  function stopAutoSlide() {
+    if (autoSlide) {
+      clearInterval(autoSlide);
+      autoSlide = null;
+      console.log("Auto-slide stopped");
+    }
+  }
+  
+  // Stop auto-slide when user hovers
+  slider.addEventListener('mouseenter', () => {
+    isUserInteracting = true;
+    stopAutoSlide();
+  });
+  
+  // Resume auto-slide 3 seconds after mouse leaves
+  slider.addEventListener('mouseleave', () => {
+    isUserInteracting = false;
+    clearTimeout(interactionTimeout);
+    interactionTimeout = setTimeout(() => {
+      startAutoSlide();
+    }, 3000); // Wait 3 seconds before resuming
+  });
+  
+  // Stop auto-slide when user manually scrolls
+  slider.addEventListener('scroll', () => {
+    isUserInteracting = true;
+    stopAutoSlide();
+    
+    // Clear previous timeout
+    clearTimeout(interactionTimeout);
+    
+    // Resume auto-slide after 5 seconds of no scrolling
+    interactionTimeout = setTimeout(() => {
+      isUserInteracting = false;
+      startAutoSlide();
+    }, 5000);
+  });
+  
+  // Handle navigation dot clicks
+  const navDots = document.querySelectorAll('.carousel-ex-nav a');
+  navDots.forEach((dot, index) => {
+    dot.addEventListener('click', function(e) {
+      currentIndex = index;
+      isUserInteracting = true;
+      stopAutoSlide();
+      
+      // Resume after 5 seconds
+      clearTimeout(interactionTimeout);
+      interactionTimeout = setTimeout(() => {
+        isUserInteracting = false;
+        startAutoSlide();
+      }, 5000);
+    });
+  });
+  
+  // Start auto-slide initially
+  startAutoSlide();
+  
+  console.log("✅ Carousel auto-slide initialized!");
+}
 });

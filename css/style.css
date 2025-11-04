@@ -468,7 +468,7 @@ footer {
 }
 
 .group {
-  margin-top: -385px;
+  margin-top: -410px;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -496,7 +496,7 @@ footer {
 .contents .solution-body-1 {
   font-family: "Prompt", sans-serif;
   font-size: 20px;
-  font-weight: lighter;
+  font-weight: normal;
 }
 
 .contents .solution-body-1 {
