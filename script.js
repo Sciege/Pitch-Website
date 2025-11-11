@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     faqSection.className = "faq-section";
     faqSection.style.cssText = `
       padding: 60px 20px;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: #d9d9d9;
     `;
 
     const faqContainer = document.createElement("div");
@@ -326,4 +326,117 @@ if (slider && images.length > 0) {
   
   console.log("✅ Carousel auto-slide initialized!");
 }
+});
+//Lab Activity 4: Client-Side Data Persistence
+// Check for browser localStorage support
+if (typeof(Storage) !== "undefined") {
+  // Browser supports localStorage
+  console.log("localStorage is supported");
+  
+  // Load theme immediately to prevent flash of unstyled content
+  loadTheme();
+} else {
+  // localStorage not supported
+  console.warn("localStorage is not supported in this browser");
+  alert("Your browser does not support localStorage. Theme preferences will not be saved.");
+}
+
+/**
+ * loadTheme()
+ * Retrieves the saved theme from localStorage and applies it to the page
+ * This function runs on page load to restore user's theme preference
+ */
+function loadTheme() {
+  // Get the saved theme from localStorage
+  const savedTheme = localStorage.getItem('theme');
+  
+  // If a theme was previously saved, apply it
+  if (savedTheme) {
+    document.body.classList.add(savedTheme);
+    console.log(`Loaded theme: ${savedTheme}`);
+    
+    // Update toggle button text if it exists
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      updateToggleButton(savedTheme);
+    }
+  } else {
+    // No saved theme, default to light mode
+    console.log("No saved theme found, using default (light mode)");
+  }
+}
+
+/**
+ * saveTheme(theme)
+ * Saves the current theme preference to localStorage
+ * @param {string} theme - The theme to save ('dark-mode' or removes for light)
+ */
+function saveTheme(theme) {
+  if (theme === 'dark-mode') {
+    localStorage.setItem('theme', 'dark-mode');
+    console.log("Theme saved: dark-mode");
+  } else {
+    // Remove the theme item for light mode (default)
+    localStorage.removeItem('theme');
+    console.log("Theme saved: light-mode (default)");
+  }
+}
+
+/**
+ * toggleTheme()
+ * Switches between light and dark themes
+ * Updates both the DOM and localStorage
+ */
+function toggleTheme() {
+  const body = document.body;
+  
+  // Toggle the dark-mode class
+  body.classList.toggle('dark-mode');
+  
+  // Determine current theme
+  const currentTheme = body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+  
+  // Save the theme to localStorage
+  saveTheme(currentTheme);
+  
+  // Update button text
+  updateToggleButton(currentTheme);
+  
+  console.log(`Theme switched to: ${currentTheme}`);
+}
+
+/**
+ * updateToggleButton(theme)
+ * Updates the theme toggle button text based on current theme
+ * @param {string} theme - Current theme ('dark-mode' or 'light-mode')
+ */
+function updateToggleButton(theme) {
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    if (theme === 'dark-mode') {
+      themeToggle.textContent = '☀️ Light Mode';
+      themeToggle.setAttribute('aria-label', 'Switch to light mode');
+    } else {
+      themeToggle.textContent = '🌙 Dark Mode';
+      themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+    }
+  }
+}
+
+/**
+ * Initialize theme toggle button when DOM is ready
+ */
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('themeToggle');
+  
+  if (themeToggle) {
+    // Attach event listener using addEventListener (not inline onclick)
+    themeToggle.addEventListener('click', toggleTheme);
+    
+    // Set initial button text based on current theme
+    const currentTheme = document.body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+    updateToggleButton(currentTheme);
+    
+    console.log("Theme toggle button initialized");
+  }
 });
